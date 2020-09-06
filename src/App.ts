@@ -37,9 +37,9 @@ export default class App {
     /* eslint-disable no-unused-vars */
     this.server.use((err: any, req: any, res: any, next: any) => {
       if (err instanceof HttpException)
-        return res.status(err.getStatus()).json(err.message || null);
+        return res.status(err.getStatus()).json([err.message] || null);
 
-      return res.status(HTTPStatusCode.INTERNAL_ERROR).json(err.message);
+      return res.status(HTTPStatusCode.INTERNAL_ERROR).json([err.message]);
     });
   }
 
