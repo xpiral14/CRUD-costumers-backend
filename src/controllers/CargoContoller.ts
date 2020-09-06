@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import { Cargo } from "../models/Cargo";
 import NotFoundException from "../exceptions/NotFound";
+import BadRequestException from "../exceptions/BadRequest";
 import { Funcionario } from "../models/Funcionario";
-import UnauthorizedException from "../exceptions/NotFound";
 export default class CargoContoller {
   static async index(req: Request, res: Response, next: NextFunction) {
     try {
@@ -50,7 +50,7 @@ export default class CargoContoller {
 
       //verificar se existe algum funcionario com esse cargo
       if (cargo?.funcionarios?.length)
-        throw new UnauthorizedException(
+        throw new BadRequestException(
           "Não é possível deletar um cargo o qual existe funcionários atrelados a ele"
         );
 
