@@ -2,7 +2,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 import path from 'path';
 
-console.log("passei aqui")
 const databaseConfig = {
   database: process.env.DB_NAME,
   username: process.env.DB_USER,

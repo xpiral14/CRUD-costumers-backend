@@ -16,9 +16,9 @@ class Database {
   async testConection() {
     try {
       await this.connection.authenticate();
-      console.log("connected with mariadb");
+      console.log("Banco de dados conectado com sucesso");
     } catch (error) {
-      console.log("error trying to connect to mariadb");
+      console.log("Erro ao conectar-se com o banco. Erro: " + error.message);
     }
   }
 

@@ -15,12 +15,6 @@ export default class App {
 
   constructor() {
     this.server = express();
-    this.initConfig();
-    this.initSecurity();
-    this.initMiddlewares();
-    this.initRoutes();
-    this.initHandleRouteErrors();
-    this.startServer();
   }
 
   public initConfig() {
@@ -40,6 +34,7 @@ export default class App {
   }
 
   public initHandleRouteErrors() {
+    /* eslint-disable no-unused-vars */
     this.server.use((err: any, req: any, res: any, next: any) => {
       if (err instanceof HttpException)
         return res.status(err.getStatus()).json(err.message || null);
@@ -50,7 +45,7 @@ export default class App {
 
   public startServer() {
     return this.server.listen(+(process.env.APP_PORT as string) || 3005, () => {
-      console.log("App has started on " + process.env.APP_PORT);
+      console.log("Servidor iniciou na porta " + process.env.APP_PORT);
     });
   }
 }
