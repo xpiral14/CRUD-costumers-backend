@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import FuncionarioController from "../controllers/FuncionarioController";
 
 const funcionarioRouter = Router();

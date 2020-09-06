@@ -5,7 +5,10 @@ import {
   DataType,
   Table,
   AutoIncrement,
+  HasMany,
 } from "sequelize-typescript";
+
+import { Funcionario } from "./Funcionario";
 
 @Table({ tableName: "cargos" })
 export class Cargo extends Model<Cargo> {
@@ -16,4 +19,7 @@ export class Cargo extends Model<Cargo> {
 
   @Column({ type: DataType.STRING, allowNull: false })
   descricao!: string;
+
+  @HasMany(() => Funcionario)
+  funcionarios!: Funcionario[];
 }

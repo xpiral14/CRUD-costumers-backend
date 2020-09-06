@@ -1,6 +1,6 @@
-import dbConfig from "../config/database";
-
 import { Sequelize } from "sequelize-typescript";
+
+import dbConfig from "../config/database";
 
 class Database {
   private connection: Sequelize;

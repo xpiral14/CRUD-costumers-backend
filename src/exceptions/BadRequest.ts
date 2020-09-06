@@ -2,8 +2,8 @@ import HttpException from "./HttpException";
 
 import HTTPStatusCode from "../constants/HTTPStatusCode";
 
-export default class UnauthorizedException extends HttpException {
+export default class BadRequestException extends HttpException {
   constructor(message: string = "") {
-    super(HTTPStatusCode.UNAUTHORIZED, message);
+    super(HTTPStatusCode.BAD_REQUEST, message);
   }
 }

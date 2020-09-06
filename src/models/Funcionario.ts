@@ -10,6 +10,7 @@ import {
   AllowNull,
   ForeignKey,
 } from "sequelize-typescript";
+
 import { Cargo } from "./Cargo";
 @Table({ tableName: "funcionarios" })
 export class Funcionario extends Model<Funcionario> {
