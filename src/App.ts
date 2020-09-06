@@ -1,12 +1,13 @@
 import dotenv from "dotenv";
 import express from "express";
-
 import helmet from "helmet";
 import cors from "cors";
+
 import CargoRouter from "./routes/CargoRoutes";
+import funcionarioRouter from "./routes/FuncionarioRoutes";
+
 import HttpException from "./exceptions/HttpException";
 import HTTPStatusCode from "./constants/HTTPStatusCode";
-import funcionarioRouter from "./routes/FuncionarioRoutes";
 
 dotenv.config();
 
