@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import { Cargo } from "../models/Cargo";
 import NotFoundException from "../exceptions/NotFound";
+import { Funcionario } from "../models/Funcionario";
+import UnauthorizedException from "../exceptions/NotFound";
 export default class CargoContoller {
   static async index(req: Request, res: Response, next: NextFunction) {
     try {
@@ -18,8 +20,7 @@ export default class CargoContoller {
 
       if (!cargo) throw new NotFoundException();
 
-
-      return res.json(cargo)
+      return res.json(cargo);
     } catch (error) {
       return next(error);
     }
@@ -43,7 +44,15 @@ export default class CargoContoller {
 
   static async delete(req: Request, res: Response, next: NextFunction) {
     try {
-      const cargo = await Cargo.findByPk(req.params.id);
+      const cargo = await Cargo.findByPk(req.params.id, {
+        include: [Funcionario],
+      });
+
+      //verificar se existe algum funcionario com esse cargo
+      if (cargo?.funcionarios?.length)
+        throw new UnauthorizedException(
+          "Não é possível deletar um cargo o qual existe funcionários atrelados a ele"
+        );
 
       if (!cargo) throw new NotFoundException();
 
