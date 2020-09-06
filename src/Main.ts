@@ -8,7 +8,10 @@ export default class Main {
 
     await database.testConection();
 
+    // Sincroniza as tabelas da aplicação com o banco de dados. 
+    // RODE APENAS UMA UNICA VEZ
     await database.getConnection().sync({ force: true });
+
     // inicia as configurações das rotas da aplicação
     app.initConfig();
 
