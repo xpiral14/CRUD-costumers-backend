@@ -91,4 +91,4 @@
     POST        funcionarios      - Cadastra funcionario
     PUT         funcionariosid  - Atualiza funcionario
     DELETE      funcionariosid  - Deleta funcionario
-'   ```
+   ```
